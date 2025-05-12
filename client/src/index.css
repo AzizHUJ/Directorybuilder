@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 7%;
+  --muted: 0 0% 95%;
+  --muted-foreground: 0 0% 45%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 7%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 7%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --primary: 18 100% 50%;  /* Orange color */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
+  --accent: 18 100% 50%;  /* Orange accent */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 18 100% 50%;
+  --radius: 0.3rem;
+}
+
+.dark {
+  --background: 0 0% 7%;  /* Black background */
+  --foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 98%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --primary: 18 100% 50%;  /* Orange color */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 18 100% 50%;  /* Orange accent */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 18 100% 50%;
+  --radius: 0.3rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-black text-foreground;
+  }
+  
+  .tree-view ul li {
+    position: relative;
+    padding-left: 1.2em;
+  }
+  
+  .tree-view ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.7em;
+    height: 0.5px;
+    background-color: #cbd5e1;
+  }
+  
+  .tree-view ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.5px;
+    background-color: #cbd5e1;
+  }
+}
