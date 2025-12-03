@@ -32,7 +32,7 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
 
 # Port expected by the app (overridable via PORT env)
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=9090
+EXPOSE 9090
 
 CMD ["node", "dist/index.js"]

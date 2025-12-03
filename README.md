@@ -11,16 +11,16 @@ Directorybuilder is a full-stack tool for generating standardized project folder
    ```bash
    docker build -t directorybuilder .
    ```
-2. Run the container (default port 8080):
+2. Run the container (default port 9090):
    ```bash
-   docker run -d --name directorybuilder -p 8080:8080 --restart unless-stopped directorybuilder
+   docker run -d --name directorybuilder -p 9090:9090 --restart unless-stopped directorybuilder
    ```
-3. Open `http://<host-ip>:8080` in your browser and use the app.
+3. Open `http://<host-ip>:9090` in your browser and use the app.
 
 ### Changing the port
-The server reads `PORT` (default `8080`). To use a different port (e.g., `9090`):
+The server reads `PORT` (default `9090`). To use a different port (e.g., `8080`):
 ```bash
-docker run -d --name directorybuilder -e PORT=9090 -p 9090:9090 --restart unless-stopped directorybuilder
+docker run -d --name directorybuilder -e PORT=8080 -p 8080:8080 --restart unless-stopped directorybuilder
 ```
 
 ## QNAP NAS setup via SSH
@@ -30,14 +30,14 @@ docker run -d --name directorybuilder -e PORT=9090 -p 9090:9090 --restart unless
    ```bash
    docker build -t directorybuilder .
    ```
-4. **Start the container** on an available port (using 8080 here):
+4. **Start the container** on an available port (using 9090 here):
    ```bash
    docker run -d --name directorybuilder \
-     -p 8080:8080 \
+     -p 9090:9090 \
      --restart unless-stopped \
      directorybuilder
    ```
-   - If 8080 is taken, set `-e PORT=XXXX` and match the published port: `-p XXXX:XXXX`.
+   - If 9090 is taken, set `-e PORT=XXXX` and match the published port: `-p XXXX:XXXX`.
 5. **Verify it is running**:
    ```bash
    docker ps --filter name=directorybuilder
@@ -48,7 +48,7 @@ docker run -d --name directorybuilder -e PORT=9090 -p 9090:9090 --restart unless
    ```bash
    docker stop directorybuilder && docker rm directorybuilder
    docker build -t directorybuilder .
-   docker run -d --name directorybuilder -p 8080:8080 --restart unless-stopped directorybuilder
+   docker run -d --name directorybuilder -p 9090:9090 --restart unless-stopped directorybuilder
    ```
 
 ## Notes

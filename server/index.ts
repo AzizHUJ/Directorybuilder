@@ -56,8 +56,8 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Use configurable port for self-hosted deployments (default 8080 for NAS containers).
-  const port = Number(process.env.PORT) || 8080;
+  // Use configurable port for self-hosted deployments (default 9090 for NAS containers).
+  const port = Number(process.env.PORT) || 9090;
   server.listen({
     port,
     host: "0.0.0.0",
