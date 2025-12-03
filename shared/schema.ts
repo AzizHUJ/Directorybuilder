@@ -52,7 +52,11 @@ export type Scene = {
   shots: { name: string }[];
 };
 
-export type DirectoryStructure = z.infer<typeof directorySchema>;
-export type InsertDirectoryStructure = z.infer<typeof insertDirectorySchema>;
+export type DirectoryPayload = z.infer<typeof directorySchema>;
+export type DirectoryStructure = DirectoryPayload & {
+  id: number;
+  createdAt: string;
+};
+export type InsertDirectoryStructure = DirectoryPayload;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;

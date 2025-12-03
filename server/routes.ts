@@ -5,7 +5,7 @@ import { directorySchema } from "@shared/schema";
 import { getProjectTemplateByCode, generateProjectCode, addProjectTemplate } from "./projectCodes";
 import * as fs from 'fs';
 import * as path from 'path';
-import archiver from 'archiver';
+import archiver, { type Archiver } from 'archiver';
 import { promisify } from 'util';
 import { createReadStream, createWriteStream } from 'fs';
 import os from 'os';
@@ -148,7 +148,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 }
 
 // Helper function to create directory structure in zip
-function createDirectoryStructureInZip(archive: archiver.Archiver, directoryData: any) {
+function createDirectoryStructureInZip(archive: Archiver, directoryData: any) {
   const { projectName, username, artistType, scenes } = directoryData;
   
   // Add project metadata file
@@ -188,7 +188,7 @@ Follow the standard structure for ${artistType} artists.`;
   }
 }
 
-function createEditorStructure(archive: archiver.Archiver, projectName: string, username: string) {
+function createEditorStructure(archive: Archiver, projectName: string, username: string) {
   const basePath = `${projectName}/${username}/work`;
   
   // Timeline structure
@@ -224,7 +224,7 @@ function createEditorStructure(archive: archiver.Archiver, projectName: string, 
     { name: `${basePath}/output/publish/README.txt` });
 }
 
-function createMotionStructure(archive: archiver.Archiver, projectName: string, username: string, scenes: any) {
+function createMotionStructure(archive: Archiver, projectName: string, username: string, scenes: any) {
   const basePath = `${projectName}/${username}/work`;
   
   // If no scenes provided, create default
@@ -260,7 +260,7 @@ function createMotionStructure(archive: archiver.Archiver, projectName: string, 
   }
 }
 
-function createCGStructure(archive: archiver.Archiver, projectName: string, username: string, scenes: any) {
+function createCGStructure(archive: Archiver, projectName: string, username: string, scenes: any) {
   const basePath = `${projectName}/${username}/work`;
   
   // If no scenes provided, create default
@@ -322,7 +322,7 @@ function createCGStructure(archive: archiver.Archiver, projectName: string, user
   }
 }
 
-function createVFXStructure(archive: archiver.Archiver, projectName: string, username: string, scenes: any) {
+function createVFXStructure(archive: Archiver, projectName: string, username: string, scenes: any) {
   const basePath = `${projectName}/${username}/work`;
   
   // If no scenes provided, create default
